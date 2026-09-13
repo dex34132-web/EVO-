@@ -58,7 +58,7 @@ class TestBridgeStatus:
         resp = _bridge({"command": "status"})
         assert resp["ok"] is True
         components = resp["components"]
-        assert "evo" in components
+        assert "lerev" in components
         assert "v2_5" in components
         assert "v2_6" in components
         assert "persistence" in components
@@ -66,7 +66,7 @@ class TestBridgeStatus:
 
     def test_status_components_are_real(self) -> None:
         resp = _bridge({"command": "status"})
-        assert resp["components"]["evo"] == "available"
+        assert resp["components"]["lerev"] == "available"
         assert resp["components"]["v2_6"] == "available"
 
     def test_status_persistence_is_real(self) -> None:
@@ -132,8 +132,8 @@ class TestBridgeRemember:
                 },
                 worktree=tmpdir,
             )
-            # Verify file was created
-            mem_file = Path(tmpdir) / ".evo" / "memory" / "v26_memory.json"
+            # Verify file was created (new .lerev/memory/ path)
+            mem_file = Path(tmpdir) / ".lerev" / "memory" / "v26_memory.json"
             assert mem_file.exists()
             data = json.loads(mem_file.read_text(encoding="utf-8"))
             assert len(data["entries"]) == 1
