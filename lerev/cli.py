@@ -1,4 +1,4 @@
-"""Lerev CLI — command-line interface for Lerev."""
+"""Lerev CLI - command-line interface for Lerev."""
 
 from __future__ import annotations
 
@@ -24,7 +24,7 @@ def _cmd_status(args: argparse.Namespace) -> None:
     bridge = discover_bridge(".")
 
     print("Lerev")
-    print("────────────────")
+    print("----------------")
     print(f"Version: {__version__}")
 
     # Plugin status
@@ -60,7 +60,7 @@ def _cmd_install(args: argparse.Namespace) -> None:
     config = LerevConfig()
 
     print("Lerev Installer")
-    print("────────────────────────────")
+    print("----------------------------")
 
     print(f"Python: {sys.version_info.major}.{sys.version_info.minor} OK")
 
@@ -126,7 +126,7 @@ def _cmd_doctor(args: argparse.Namespace) -> None:
     bridge = discover_bridge(".")
 
     print("Lerev Doctor")
-    print("────────────────────────────")
+    print("----------------------------")
 
     checks = []
 
@@ -137,7 +137,7 @@ def _cmd_doctor(args: argparse.Namespace) -> None:
         print("Lerev runtime          PASS")
         checks.append(True)
     except Exception:
-        print("Lerev runtime          FAIL — core.routing.v26 not importable")
+        print("Lerev runtime          FAIL - core.routing.v26 not importable")
         checks.append(False)
 
     # Python
@@ -149,7 +149,7 @@ def _cmd_doctor(args: argparse.Namespace) -> None:
         print(f"Bridge                 PASS (tier: {bridge.tier})")
         checks.append(True)
     else:
-        print("Bridge                 FAIL — no bridge found")
+        print("Bridge                 FAIL - no bridge found")
         checks.append(False)
 
     # OpenCode
@@ -158,7 +158,7 @@ def _cmd_doctor(args: argparse.Namespace) -> None:
         print("OpenCode               PASS")
         checks.append(True)
     else:
-        print("OpenCode               FAIL — config not found")
+        print("OpenCode               FAIL - config not found")
         checks.append(False)
 
     # Plugin registration
@@ -166,7 +166,7 @@ def _cmd_doctor(args: argparse.Namespace) -> None:
         print("Plugin registration   PASS")
         checks.append(True)
     else:
-        print("Plugin registration   FAIL — not registered")
+        print("Plugin registration   FAIL - not registered")
         checks.append(False)
 
     # Plugin resolution
@@ -175,7 +175,7 @@ def _cmd_doctor(args: argparse.Namespace) -> None:
         print("Plugin resolution     PASS")
         checks.append(True)
     else:
-        print("Plugin resolution     FAIL — plugin directory not found")
+        print("Plugin resolution     FAIL - plugin directory not found")
         checks.append(False)
 
     # Memory storage
@@ -185,14 +185,14 @@ def _cmd_doctor(args: argparse.Namespace) -> None:
         print("Memory storage         PASS")
         checks.append(True)
     else:
-        print("Memory storage         SKIP — no memory data yet")
+        print("Memory storage         SKIP - no memory data yet")
         checks.append(True)
 
     print("")
     if all(checks):
         print("Result: READY")
     else:
-        print("Result: NOT READY — fix issues above")
+        print("Result: NOT READY - fix issues above")
 
 
 def _cmd_uninstall(args: argparse.Namespace) -> None:
@@ -200,7 +200,7 @@ def _cmd_uninstall(args: argparse.Namespace) -> None:
     config = LerevConfig()
 
     print("Lerev Uninstaller")
-    print("────────────────────────────")
+    print("----------------------------")
 
     # Remove plugin directory
     plugin_dir = config.lerev_plugin_dir()
@@ -235,7 +235,7 @@ def main() -> None:
     """Main CLI entry point."""
     parser = argparse.ArgumentParser(
         prog="lerev",
-        description="Lerev — Universal agent learning and memory system",
+        description="Lerev - Universal agent learning and memory system",
     )
     subparsers = parser.add_subparsers(dest="command", help="Available commands")
 
