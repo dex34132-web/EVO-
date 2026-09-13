@@ -1,0 +1,22 @@
+{
+  "version": "2.6.0",
+  "entries": [
+    {
+      "memory_id": "62d41eb9da694f46",
+      "content": "c",
+      "kind": "EPISODIC",
+      "scope": {
+        "agent": {
+          "agent_id": "a2"
+        }
+      },
+      "timestamp": 1789279294.730218,
+      "source": "agent",
+      "tags": [],
+      "confidence": 0.5,
+      "metadata": {},
+      "parent_id": null,
+      "promoted_from": null
+    }
+  ]
+}
